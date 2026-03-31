@@ -1,29 +1,40 @@
-# 🚀 Curso de DevOps & Infraestrutura como Código (IaC)
+# ?? Laborat�rio de DevOps: Infraestrutura e Deploy Web
 
-Este repositório contém os laboratórios práticos realizados durante o curso de DevOps na Uninter. O objetivo principal é a automação de infraestrutura, monitorização e gestão de serviços utilizando ferramentas modernas do mercado.
+Este reposit�rio documenta a configura��o de um ambiente completo de servidor web utilizando pr�ticas de **Infraestrutura como C�digo (IaC)** e automa��o.
 
-## 🛠️ Tecnologias Utilizadas
-* **Vagrant:** Gestão e automação de máquinas virtuais.
-* **Oracle VirtualBox:** Provedor de virtualização.
-* **Ubuntu 20.04 LTS (Focal Fossa):** Sistema operativo do servidor.
-* **Apache2:** Servidor Web para disponibilização de serviços.
-* **WSL2:** Ambiente Linux dentro do Windows para execução de comandos.
+## ??? Estrutura do Projeto
+* **Vagrantfile:** Configura��o da m�quina virtual Ubuntu 20.04 (Focal Fossa).
+* **projeto-professor/:** C�digo-fonte do site "Mundo Invertido" (HTML/CSS/JS/Assets) integrado ao reposit�rio para hist�rico de deploy.
+* **IP do Servidor:** \192.168.0.150\ (Acess�vel via rede Bridge).
 
-## 🏗️ Estrutura do Laboratório
-O ambiente foi configurado com um endereço IP fixo (**192.168.0.150**) para permitir o acesso direto a partir do sistema anfitrião (Windows).
+## ??? Tecnologias e Ferramentas
+- **Vagrant & VirtualBox:** Virtualiza��o e provisionamento.
+- **Apache2:** Servidor web respons�vel por hospedar os ficheiros.
+- **Git/GitHub:** Controlo de vers�o e gest�o de c�digo.
+- **WSL2:** Interface de comandos Linux no Windows.
 
-### Principais Comandos de Gestão:
-- \agrant up\: Inicia a infraestrutura.
-- \agrant ssh\: Acesso remoto ao servidor Linux.
-- \agrant halt\: Desliga a máquina virtual para poupar recursos.
-- \ip a\: Verificação de interfaces de rede e conectividade.
+## ?? Como realizar o Deploy (Passo a Passo)
 
-## 📝 Evolução do Projeto
-1. [x] Configuração do Ambiente Vagrant.
-2. [x] Estabelecimento de conectividade via Bridge e NAT.
-3. [x] Instalação e configuração do Servidor Web Apache.
-4. [ ] Implementação de Monitorização (Próximo passo: Prometheus & Grafana).
+Se precisar de subir este ambiente do zero, os comandos s�o:
+
+1. **No Windows (PowerShell):**
+   \\\powershell
+   vagrant up
+   vagrant ssh
+   \\\
+
+2. **No Ubuntu (Terminal Linux):**
+   \\\ash
+   # Atualizar e instalar o servidor web
+   sudo apt update && sudo apt install apache2 -y
+
+   # Copiar os arquivos do projeto para a pasta p�blica do Apache
+   sudo cp -R /vagrant/projeto-professor/* /var/www/html/
+   \\\
+
+3. **Aceder no Navegador:**
+   Abra \http://192.168.0.150\ para ver o site em funcionamento.
 
 ---
-**Desenvolvido por Sivaldo**
-*Aspiring DevOps & Cybersecurity Professional*
+**Status do Projeto:** ?? Deploy conclu�do com sucesso.
+**Autor:** Sivaldo (EngSivaldo)
